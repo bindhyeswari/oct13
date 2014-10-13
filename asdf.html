@@ -31,22 +31,73 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-
             var geocoder = new google.maps.Geocoder();
             var latlng = new google.maps.LatLng(40.730885,-73.997383);
             geocoder.geocode({'latLng': latlng}, function (results, code) {
                 if (code == google.maps.GeocoderStatus.OK) {
                     console.log(results);
-
-
                 }
             });
+
+            // storage
+            var hashtable = [];
+            var country_digest = digest('country'); // 123 185 222 % 11
+            hashtable[country_digest] = 'United States';
+
+            // lookup
+            var code = digest('country');
+            hashtable[code];
+
+            var arr = new Array(20);
+
+
+
+
+            var hashmap = {
+                'country': 'United States',
+                'political': {
+                    'country': 'United Staets',
+                    'locality': 'New York'
+                },
+                'locality': 'New York',
+                'establishment': 'New York University'
+            }
+
+
 
         });
     </script>
 </head>
 <body>
+<form action="">
+
+    <input type="text" name="country"/>
+    <input type="text" name="locality"/>
+    <input type="radio" name="data"/>
+    <input type="radio" name="data"/>
+
+</form>
+
 <div id="types"></div>
 <div id="results"></div>
+
+<script>
+
+    // create a select element with the options 1, 2, 3
+    // when the user selects an option, print that to console
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'http://www.nasdaq.com/screening/companies-by-name.aspx?letter=G&page=6');
+    xhr.onreadystatechange = function () {
+        if ( xhr.readyState === 4 ) {
+            console.log(xhr.status);
+            console.log(xhr.responseText);
+        }
+    };
+    xhr.send();
+
+
+
+</script>
 </body>
 </html>
