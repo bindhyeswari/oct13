@@ -14,6 +14,8 @@
             display: inline-block;
         }
     </style>
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script>
 
         // HTML5 geolocation
@@ -33,6 +35,10 @@
                 // create a new Latlng object
                 // refer to the googlemaps script
                 // geocoder.geocode ( {'latLng': latlong object }, function (results, status) { check status and print results } )
+
+
+
+
             });
 
             var watchid = navigator.geolocation.watchPosition(function (data) {
