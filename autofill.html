@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="base.css"/>
+    <style>
+        input {
+            display: block;
+            margin: 1em;
+        }
+
+        fieldset {
+            display: inline-block;
+        }
+    </style>
+    <script>
+
+        // HTML5 geolocation
+        // http://dev.w3.org/geo/api/spec-source.html
+        // https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation
+        // https://developers.google.com/maps/documentation/javascript/examples/geocoding-reverse
+
+        // reverse geocoding google maps
+
+        if ( navigator.geolocation ) {
+            console.log('Geolocation is supported');
+
+            navigator.geolocation.getCurrentPosition(function (data) {
+               console.log(data);
+
+                // create a new geocoder object
+                // create a new Latlng object
+                // refer to the googlemaps script
+                // geocoder.geocode ( {'latLng': latlong object }, function (results, status) { check status and print results } )
+            });
+
+            var watchid = navigator.geolocation.watchPosition(function (data) {
+                console.log(data);
+                navigator.geolocation.clearWatch(watchid);
+            });
+
+        } else {
+            console.log('Geolocation is not supported.')
+        }
+
+    </script>
+</head>
+<body>
+
+    <form action="https://www.google.com/" method="GET">
+        <input type="email" name="q"/>
+        <input type="submit" value="Search"/>
+    </form>
+
+    <form>
+        <fieldset>
+            <input type="text" placeholder="Apt #"/>
+            <input type="text" placeholder="street"/>
+            <input type="text" placeholder="city"/>
+            <input type="text" placeholder="state"/>
+            <input type="text" placeholder="zip"/>
+        </fieldset>
+    </form>
+
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="base.css"/>
+    <style>
+        input {
+            display: block;
+            margin: 1em;
+        }
+    </style>
+    <title></title>
+
+</head>
+<body>
+
+<ul>
+    <li>color</li>
+    <li>date</li>
+    <li>datetime</li>
+    <li>datetime-local</li>
+    <li>email</li>
+    <li>month</li>
+    <li>number</li>
+    <li>range</li>
+    <li>search</li>
+    <li>tel</li>
+    <li>time</li>
+    <li>url</li>
+    <li>week</li>
+</ul>
+
+<form>
+
+
+
+</form>
+
+<script>
+
+    'use strict';
+
+    console.log(typeof null);
+
+    console.log(Object.prototype.toString.call(/Ray/igm));
+
+    var x = 10;
+
+    (function test() {
+        console.log(this); // window
+        var x = 11;
+        console.log(x);
+
+    } ());
+
+    function test() {
+        console.log(this); // window
+        // calling immediate function
+        (function () {
+            console.log(this);
+        } ());
+    }
+
+    test();
+
+    var obj = { id: 32 };
+    obj.test = test;
+
+    test.call(obj);
+    obj.test();
+
+    // test();
+
+
+    console.log(x); // prints 10
+
+
+
+    (function () {
+        var lis = document.body.firstElementChild.children;
+        var form = document.body.children[1];
+
+        for (var i = 0, len = lis.length; i < len; i++) {
+            var input = document.createElement('input');
+            input.placeholder = input.type = lis[i].innerHTML;
+            form.appendChild(input);
+        }
+
+    } ());
+
+
+
+</script>
+
+</body>
+
+
+</html>
