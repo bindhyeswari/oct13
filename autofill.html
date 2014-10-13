@@ -14,43 +14,8 @@
             display: inline-block;
         }
     </style>
-    <script type="text/javascript"
-            src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-    <script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 
-        // HTML5 geolocation
-        // http://dev.w3.org/geo/api/spec-source.html
-        // https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation
-        // https://developers.google.com/maps/documentation/javascript/examples/geocoding-reverse
-
-        // reverse geocoding google maps
-
-        if ( navigator.geolocation ) {
-            console.log('Geolocation is supported');
-
-            navigator.geolocation.getCurrentPosition(function (data) {
-               console.log(data);
-
-                // create a new geocoder object
-                // create a new Latlng object
-                // refer to the googlemaps script
-                // geocoder.geocode ( {'latLng': latlong object }, function (results, status) { check status and print results } )
-
-
-
-
-            });
-
-            var watchid = navigator.geolocation.watchPosition(function (data) {
-                console.log(data);
-                navigator.geolocation.clearWatch(watchid);
-            });
-
-        } else {
-            console.log('Geolocation is not supported.')
-        }
-
-    </script>
 </head>
 <body>
 
@@ -69,6 +34,48 @@
         </fieldset>
     </form>
 
+    <script>
 
+        // HTML5 geolocation
+        // http://dev.w3.org/geo/api/spec-source.html
+        // https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation
+        // https://developers.google.com/maps/documentation/javascript/examples/geocoding-reverse
+
+        // reverse geocoding google maps
+
+        if ( navigator.geolocation ) {
+            console.log('Geolocation is supported');
+
+            navigator.geolocation.getCurrentPosition(function (data) {
+                console.log(data);
+
+                // create a new geocoder object
+                // create a new Latlng object
+                // refer to the googlemaps script
+                // geocoder.geocode ( {'latLng': latlong object }, function (results, status) { check status and print results } )
+
+                var geocoder = new google.maps.Geocoder();
+                var latlng = new google.maps.LatLng(40.730885,-73.997383);
+                geocoder.geocode({'latLng': latlng}, function (results, code) {
+                    if (code == google.maps.GeocoderStatus.OK) {
+
+                    } else {
+                        console.log(results);
+                    }
+                });
+
+
+            });
+
+            var watchid = navigator.geolocation.watchPosition(function (data) {
+                console.log(data);
+                navigator.geolocation.clearWatch(watchid);
+            });
+
+        } else {
+            console.log('Geolocation is not supported.')
+        }
+
+    </script>
 </body>
 </html>
